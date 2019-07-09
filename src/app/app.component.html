@@ -1,0 +1,59 @@
+<div style="width: 80%; margin: 0 auto; margin-top: 50px;" (submit)="update()">
+  <form *ngIf="edit_index >= 0">
+    <div class="form-row">
+      <div class="form-group">
+        <label class="control-label col-sm-3">Name:</label>
+        <div class="col-sm-7">
+          <input
+            class="form-control"
+            [(ngModel)]="selected_info.name"
+            name="name"
+          />
+        </div>
+      </div>
+      <br /><br />
+      <div class="form-group">
+        <label class="control-label col-sm-3">User Name:</label>
+        <div class="col-sm-7">
+          <input
+            class="form-control"
+            [(ngModel)]="selected_info.username"
+            name="username"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <label class="control-label col-sm-3">Street:</label>
+        <div class="col-sm-7">
+          <input
+            class="form-control"
+            [(ngModel)]="selected_info.street"
+            name="street"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <label class="control-label col-sm-3">City:</label>
+        <div class="col-sm-7">
+          <input
+            class="form-control"
+            [(ngModel)]="selected_info.city"
+            name="city"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <ag-grid-angular
+    style="width: 600px; height: 350px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    rowSelection="single"
+    (rowSelected)="onRowSelected($event)"
+  >
+  </ag-grid-angular>
+</div>
